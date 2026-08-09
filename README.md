@@ -30,7 +30,7 @@
 ### 方式二：Claude Code
 
 ```bash
-git clone https://github.com/<doristt505>/parable-fiction.git
+git clone https://github.com/doristt505/parable-fiction.git
 cp -r parable-fiction/parable-fiction ~/.claude/skills/
 ```
 
