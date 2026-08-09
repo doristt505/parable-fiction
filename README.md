@@ -17,7 +17,7 @@
 - **禁止清单** — 直接说出道理、用梦解释一切、感叹句收尾等常见陷阱
 - **文风对齐** — 提供范文时，从四个维度拆解并对齐
 
-参照谱系：卡夫卡、博尔赫斯、加缪、川端康成掌小说、史铁生。
+参照谱系：卡夫卡、博尔赫斯、加缪等小说。
 
 ---
 
@@ -30,7 +30,7 @@
 ### 方式二：Claude Code
 
 ```bash
-git clone https://github.com/<your-username>/parable-fiction.git
+git clone https://github.com/<doristt505>/parable-fiction.git
 cp -r parable-fiction/parable-fiction ~/.claude/skills/
 ```
 
