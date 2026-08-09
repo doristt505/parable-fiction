@@ -1,6 +1,6 @@
 # parable-fiction
 
-一个用于写作**超短篇中文哲学寓言小说**的 Claude Skill。
+一个用于写作**超短篇中文哲学寓言小说**的 Agent Skill，遵循开放的 SKILL.md 标准，可在 Claude、Codex、Cursor、Gemini CLI 等多种 AI agent 中使用。
 
 给它一个抽象命题——「人总在两个选择之间徘徊」「神给了人一个无法验证的礼物」——它会把命题落成一个可以走进去的具体处境，写成 800—2500 字的短篇。
 
@@ -17,26 +17,43 @@
 - **禁止清单** — 直接说出道理、用梦解释一切、感叹句收尾等常见陷阱
 - **文风对齐** — 提供范文时，从四个维度拆解并对齐
 
-参照谱系：卡夫卡、博尔赫斯、加缪等小说。
+参照谱系：卡夫卡、博尔赫斯、加缪、川端康成掌小说、史铁生。
 
 ---
 
 ## 安装
 
-### 方式一：Claude 应用内安装
+### Claude（网页版 / 桌面版）
 
-下载 [`parable-fiction.skill`](./parable-fiction.skill)，在 Claude 里上传该文件，点击 **Save skill**。
+下载 [`parable-fiction.skill`](./parable-fiction.skill)，在对话框里上传该文件，点击 **Save skill**。
 
-### 方式二：Claude Code
+### Claude Code
 
 ```bash
 git clone https://github.com/doristt505/parable-fiction.git
+mkdir -p ~/.claude/skills
 cp -r parable-fiction/parable-fiction ~/.claude/skills/
 ```
 
-### 方式三：手动
+### Codex（CLI / IDE 扩展 / 桌面版）
 
-把 `parable-fiction/SKILL.md` 放进你的 skills 目录即可。
+Codex 会扫描 `~/.agents/skills/`（个人跨仓库）和 `$REPO_ROOT/.agents/skills/`（项目级）。写作类 skill 建议装在个人目录：
+
+```bash
+git clone https://github.com/doristt505/parable-fiction.git
+mkdir -p ~/.agents/skills
+cp -r parable-fiction/parable-fiction ~/.agents/skills/
+```
+
+Codex 会自动检测新 skill；若未生效，重启 Codex。
+
+### Cursor / Gemini CLI / 其他支持 SKILL.md 的 agent
+
+把 `parable-fiction/` 这个文件夹放进该工具的 skills 目录即可，格式通用无需修改。
+
+### ChatGPT 网页版 / 任意聊天界面
+
+不支持自动加载的界面，用 [`prompt.md`](./prompt.md) —— 那是去掉 frontmatter 的纯提示词版本。整段复制，粘贴进「自定义指令」「系统提示」或项目说明里。代价是失去自动触发，需要手动说明要用这套写法。
 
 ---
 
@@ -70,9 +87,10 @@ cp -r parable-fiction/parable-fiction ~/.claude/skills/
 parable-fiction/
 ├── README.md
 ├── LICENSE
-├── .gitignore
+├── prompt.md                  # 通用提示词版（无 frontmatter）
+├── parable-fiction.skill      # 打包版，供 Claude 一键安装
 └── parable-fiction/
-    └── SKILL.md
+    └── SKILL.md               # 主文件
 ```
 
 ---
